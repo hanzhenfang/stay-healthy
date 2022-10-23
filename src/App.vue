@@ -3,7 +3,9 @@ import Home from "../src/view/Home/index.vue";
 </script>
 
 <template>
-  <Home />
+  <div class="max-w-500px">
+    <Home />
+  </div>
 </template>
 
 <style scoped></style>
