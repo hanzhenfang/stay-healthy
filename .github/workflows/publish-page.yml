@@ -4,19 +4,19 @@ on: push
 env:
   # FIXME: `surge token` 生成
   # https://docs.github.com/en/actions/security-guides/encrypted-secrets
-  TOKEN: 5c1f6ffee9e7b33a501effda59ed13c3
+  X_TOKEN: 5c1f6ffee9e7b33a501effda59ed13c3
 
 jobs:
 
-  build-with-linux-x86_64:
+  surge-build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run:
+      - run: |
           npm i
           npm run build
           npm i -g surge
-          surge dist wuhan-stay.surge.sh --token ${{TOKEN}}
+          surge dist wuhan-stay.surge.sh --token ${{X_TOKEN}}
