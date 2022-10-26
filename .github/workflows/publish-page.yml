@@ -22,4 +22,7 @@ jobs:
           npm i -g surge
           npm i -g vercel
           surge dist wuhan-stay.surge.sh --token ${{ env.X_TOKEN }}
+          mkdir -p dist/.vercel
+          touch dist/.vercel/project.json
+          echo '{"orgId":"DMVUGBEy7vKFxt81AVbM8VJ8","projectId":"prj_f8sQYDx1KekbRr2YmHhXHN2y0A8J"}' > dist/.vercel/project.json
           vercel -t ${{ env.VERCEl_TOKEN }} deploy dist
