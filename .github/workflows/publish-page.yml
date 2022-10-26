@@ -19,4 +19,4 @@ jobs:
           npm i
           npm run build
           npm i -g surge
-          surge dist wuhan-stay.surge.sh --token ${{X_TOKEN}}
+          surge dist wuhan-stay.surge.sh --token ${{ env.X_TOKEN }}
