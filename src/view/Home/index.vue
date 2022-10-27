@@ -21,7 +21,7 @@ const footerCard = ref<Array<FooterCard>>([
 ]);
 
 const footerCardWrapper = ref<HTMLDivElement>();
-const userName = ref<string>("韩振方");
+const userName = ref<string>("测试");
 const userUid = ref<string>("111111111111111111");
 const timerID = ref<number>(-1);
 const date = ref<string>("2022-10-22 21:04:41:22");
@@ -83,7 +83,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="border-2 w-390px h-850px">
+  <div class="border-2 w-390px h-850px relative">
     <div class="h-20% pl-40px bg-#3981F6 flex justify-between pt-25px">
       <!-- 姓名展示 -->
       <div class="flex flex-col">
