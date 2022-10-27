@@ -69,6 +69,8 @@ function subUid(ID: string) {
 }
 
 onMounted(() => {
+  userName.value = window.prompt("输入你的姓名") || "王小明";
+  userUid.value = window.prompt("输入你的身份证号") || "123456789123456789";
   subName(userName.value);
   subUid(userUid.value);
   timerID.value = setInterval(() => {

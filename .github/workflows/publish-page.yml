@@ -1,0 +1,28 @@
+name: build & publish to suga
+on: push
+
+env:
+  # FIXME: `surge token` 生成
+  # https://docs.github.com/en/actions/security-guides/encrypted-secrets
+  X_TOKEN: 5c1f6ffee9e7b33a501effda59ed13c3
+  VERCEl_TOKEN: SZ7FJZ5rTPCPFdzL4HWfbTSj
+
+jobs:
+
+  surge-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: |
+          npm i
+          npm run build
+          npm i -g surge
+          npm i -g vercel
+          surge dist wuhan-stay.surge.sh --token ${{ env.X_TOKEN }}
+          mkdir -p dist/.vercel
+          touch dist/.vercel/project.json
+          echo '{"orgId":"DMVUGBEy7vKFxt81AVbM8VJ8","projectId":"prj_f8sQYDx1KekbRr2YmHhXHN2y0A8J"}' > dist/.vercel/project.json
+          vercel -t ${{ env.VERCEl_TOKEN }} deploy dist
