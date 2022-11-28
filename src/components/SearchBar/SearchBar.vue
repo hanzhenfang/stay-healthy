@@ -54,6 +54,10 @@ function isHover(index) {
   return _isHover;
 }
 
+function toSearch() {
+  console.log("我去调用后端");
+}
+
 nextTick(() => {
   cleanSearchKeyword();
   inputModal.value?.focus();
@@ -81,6 +85,7 @@ nextTick(() => {
       <div class="grow flex items-center justify-between mr-[18px]">
         <input
           ref="inputModal"
+          @change="toSearch"
           class="w-full border-none outline-none h-[30px] text-[14px] text-[#333333] align-middle font-semibold placeholder:text-[#D1D1D1] placeholder:text-[16px]"
           :placeholder="inputPlaceholder"
           v-model="searchKeyword"

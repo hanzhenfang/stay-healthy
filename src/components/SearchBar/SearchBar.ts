@@ -17,7 +17,7 @@ class SearchBarCreator {
     if (this.showing) {
       this.dismiss();
     } else {
-      const searchBar = h(h(SearchBar));
+      const searchBar = h(SearchBar);
       render(searchBar, this.container);
       const searchBarWrapperDOM =
         this.container.querySelector("#searchBarWrapper");
@@ -38,4 +38,37 @@ class SearchBarCreator {
   }
 }
 
-export default SearchBarCreator;
+class SearchBarMaker {
+  container: HTMLDivElement;
+  isShowing: boolean;
+  constructor() {
+    this.container = document.createElement("div");
+    this.isShowing = false;
+  }
+
+  present() {
+    if (this.isShowing) {
+      console.log("this", this);
+      this.dismiss();
+    } else {
+      const searchBar = h(SearchBar);
+      render(searchBar, this.container);
+      const searchBarWrapperDOM =
+        this.container.querySelector("#searchBarWrapper");
+      searchBarWrapperDOM?.classList.add("searchInput");
+      document.body.insertBefore(this.container, document.body.firstChild);
+      this.isShowing = true;
+      console.log("this", this);
+    }
+  }
+
+  dismiss() {
+    if (this.container) {
+      render(null, this.container);
+      document.body.removeChild(this.container);
+      this.isShowing = false;
+    }
+  }
+}
+
+export default SearchBarMaker;

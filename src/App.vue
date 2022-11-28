@@ -1,23 +1,29 @@
 <script setup lang="ts">
-import Home from "../src/view/Home/index.vue";
+import { onMounted } from "vue";
 
 import useSearch from "./use/useSearch";
 
-import SearchBar from "./components/SearchBar/SearchBar.vue";
-const { openSearchBar } = useSearch;
+const { openSearchBar, closeSearchBar } = useSearch;
+
+onMounted(() => {
+  window.addEventListener("keydown", (e) => {
+    if (e.metaKey && e.key === "k") {
+      console.log("e.metaKey", e.metaKey);
+      console.log("e.key", e.key);
+      openSearchBar();
+    }
+  });
+});
 </script>
 
 <template>
-  <div class="h-[100vh] w-[100vw] bg-[#2ec1cc]">
-    <!-- <Home /> -->
-    <button @click="openSearchBar">搜索</button>
-  </div>
+  <div class="h-[100vh] w-[100vw] bg-[#2ec1cc]"></div>
 </template>
 
 <style>
 @keyframes searchInput {
   from {
-    transform: translateY(20px);
+    transform: translateY(50px);
   }
   to {
     transform: translateY(0px);
@@ -25,6 +31,6 @@ const { openSearchBar } = useSearch;
 }
 
 .searchInput {
-  animation: searchInput 0.1s;
+  animation: searchInput 1s;
 }
 </style>

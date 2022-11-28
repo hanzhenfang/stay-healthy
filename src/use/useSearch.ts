@@ -34,7 +34,7 @@ function hdlSearchBtn() {
 }
 
 watch(searchKeyword, () => {
-  console.log("searchKeyword.value", searchKeyword.value);
+  console.log("我想后端发请求了");
 });
 
 export default {
