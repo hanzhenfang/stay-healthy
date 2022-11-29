@@ -1,6 +1,8 @@
 import { ref, watch, onMounted, nextTick } from "vue";
 import SearchBarCreator from "../components/SearchBar/SearchBar";
 
+import { debounce } from "../utils/debounce";
+
 export type SearchModelType = "filename" | "content";
 
 const searchBar = new SearchBarCreator(); // 生成一个全局的搜索框，全局唯一
@@ -33,9 +35,11 @@ function hdlSearchBtn() {
   }
 }
 
-watch(searchKeyword, () => {
+function getSeach() {
   console.log("我想后端发请求了");
-});
+}
+
+watch(searchKeyword, debounce(getSeach));
 
 export default {
   openSearchBar, //打开搜索框
