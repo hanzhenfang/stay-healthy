@@ -2,16 +2,17 @@
   "name": "stay-healthy",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/express": "^4.17.14",
     "vue": "^3.2.37"
   },
   "devDependencies": {
+    "@types/node": "^18.11.10",
     "@unocss/preset-uno": "^0.45.30",
     "@unocss/vite": "^0.45.30",
     "@vitejs/plugin-vue": "^3.1.0",

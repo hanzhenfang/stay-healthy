@@ -39,7 +39,7 @@ function getSeach() {
   console.log("我想后端发请求了");
 }
 
-watch(searchKeyword, debounce(getSeach));
+watch(searchKeyword, getSeach);
 
 export default {
   openSearchBar, //打开搜索框

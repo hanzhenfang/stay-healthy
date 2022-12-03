@@ -23,7 +23,7 @@ const footerCard = ref<Array<FooterCard>>([
 const footerCardWrapper = ref<HTMLDivElement>();
 const userName = ref<string>("测试");
 const userUid = ref<string>("111111111111111111");
-const timerID = ref<number>(-1);
+const timerID = ref<any>(-1);
 const date = ref<string>("2022-10-22 21:04:41:22");
 const second = ref<string>("20");
 

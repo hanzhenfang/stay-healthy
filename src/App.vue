@@ -1,23 +1,35 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 
-import useSearch from "./use/useSearch";
+import MyPromise from "@/utils/promise";
+import TestVue from "./view/Test/test.vue";
+import { useBestLayout } from "./use/useBestGridLayout";
 
-const { openSearchBar, closeSearchBar } = useSearch;
+import hanBaby from "./assets/海绵宝宝.jpeg";
+import type { CSSProperties } from "vue";
+
+const wrapper = ref<HTMLDivElement>();
+const { bestRowCounts, bestWidth } = useBestLayout(wrapper, 300, 20);
+
+const wrapperStyle = computed<CSSProperties>(() => {
+  return {
+    display: `grid`,
+    gridTemplateColumns: `repeat(${bestRowCounts.value},${bestWidth.value}px`,
+    gap: `20px 20px`,
+  };
+});
 
 onMounted(() => {
-  window.addEventListener("keydown", (e) => {
-    if (e.metaKey && e.key === "k") {
-      console.log("e.metaKey", e.metaKey);
-      console.log("e.key", e.key);
-      openSearchBar();
-    }
+  new MyPromise((resolve, reject) => {
+    resolve("哈哈");
   });
 });
 </script>
 
 <template>
-  <div class="h-[100vh] w-[100vw] bg-[#2ec1cc]"></div>
+  <div ref="wrapper" class="h-[100vh] w-[100vw] bg-[#2ec1cc]">
+    <TestVue />
+  </div>
 </template>
 
 <style>
