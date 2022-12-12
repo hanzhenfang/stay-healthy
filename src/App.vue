@@ -18,12 +18,6 @@ const wrapperStyle = computed<CSSProperties>(() => {
     gap: `20px 20px`,
   };
 });
-
-onMounted(() => {
-  new MyPromise((resolve, reject) => {
-    resolve("哈哈");
-  });
-});
 </script>
 
 <template>
