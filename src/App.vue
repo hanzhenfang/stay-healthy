@@ -3,6 +3,8 @@ import { ref, onMounted, computed } from "vue";
 
 import MyPromise from "@/utils/promise";
 import TestVue from "./view/Test/test.vue";
+import Test1Vue from "./view/Test/test1.vue";
+
 import { useBestLayout } from "./use/useBestGridLayout";
 
 import hanBaby from "./assets/海绵宝宝.jpeg";
@@ -22,7 +24,8 @@ const wrapperStyle = computed<CSSProperties>(() => {
 
 <template>
   <div ref="wrapper" class="h-[100vh] w-[100vw] bg-[#2ec1cc]">
-    <TestVue />
+    <!-- <TestVue /> //promise -->
+    <Test1Vue />
   </div>
 </template>
 

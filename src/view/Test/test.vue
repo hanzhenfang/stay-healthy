@@ -69,6 +69,8 @@ data
     console.log("age3", age5);
     return addUserAge1(age5);
   });
+
+  
 </script>
 <template>
   <div>{{}}</div>
