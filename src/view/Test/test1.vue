@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { promisify } from "util";
-
 class MyPromise {
   #result: any;
   #state: "pending" | "fulfilled" | "rejected";
+  #callBackFnArray: Array<any>;
   constructor(executor: Function) {
+    this.#callBackFnArray = [];
     this.#state = "pending";
     executor(this.resolve.bind(this), this.reject.bind(this));
   }
@@ -13,6 +13,16 @@ class MyPromise {
     if (this.#state !== "pending") return;
     this.#result = value;
     this.#state = "fulfilled";
+
+    if (this.#callBackFnArray.length > 0) {
+      queueMicrotask(() => {
+        this.#callBackFnArray.forEach((onFulfilled) => {
+          onFulfilled();
+        });
+      });
+    } else {
+      return;
+    }
   }
 
   reject(value) {
@@ -21,42 +31,73 @@ class MyPromise {
     this.#state = "rejected";
   }
 
-  then(onFulfilled, onRejected) {
-    if (this.#state === "fulfilled") {
-      onFulfilled(this.#result);
-    }
-    if (this.#state === "rejected") {
-      onRejected(this.#result);
-    }
+  then(onFulfilled, onRejected?) {
+    return new MyPromise((resolve, reject) => {
+      if (this.#state === "pending") {
+        this.#callBackFnArray.push(() => {
+          resolve(onFulfilled(this.#result));
+        });
+      } else if (this.#state === "fulfilled") {
+        queueMicrotask(() => {
+          resolve(onFulfilled(this.#result));
+        });
+      } else if (this.#state === "rejected") {
+        onRejected(this.#result);
+      }
+    });
   }
 }
 
 // MyPromise 的实例
 const data = new MyPromise((resolve, reject) => {
-  resolve("1");
+  setTimeout(() => {
+    resolve("我是 MyPromise");
+  }, 2000);
 });
 
-data.then(
-  (result) => {
-    console.log("result", result);
-  },
-  () => {}
-);
+data
+  .then((result1) => {
+    console.log("result1", result1);
+    return "我是 then1 的返回值";
+  })
+  .then((result2) => {
+    console.log("result2", result2);
+    return "我是 then2 的返回值";
+  })
+  .then((result3) => {
+    console.log("result3", result3);
+    return "我是 then3 的返回值";
+  })
+  .then((result4) => {
+    console.log("result4", result4);
+  });
 
-console.log("我应该是第一执行的");
+// data.then((result) => {
+//   console.log("我读取的是 then1的值 ", result);
+//   return "我是 then2 的返回值";
+// });
 
-//tips: 这是原生 Promise 类
-new Promise(() => {
-  console.log("我这里是同步代码");
-});
+// data.then(
+//   (result) => {
+//     console.log("我读取的是 then2的值", result);
+//   },
+//   () => {}
+// );
 
-// 原生 Promise
-// new Promise((resolve) => {
-//   resolve("1");
-//   resolve("2");
-//   resolve("3");
-// }).then((result) => {
+// console.log("我在主线程，我应该是第一执行的");
+
+// tips: 这是原生 Promise 类
+// const yuan = new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve("我是原生 Promise");
+//   }, 1000);
+// });
+
+//  yuan.then((result) => {
 //   console.log("result", result);
 // });
+// console.log("test", test);
+
+// console.log("我在主线程，我应该是第一执行的");
 </script>
 <template></template>
