@@ -1,13 +1,6 @@
-function test() {
-  console.log(1);
+function test(a = 1) {
+  console.log(a);
+  function a() {}
+  console.log(a);
 }
-
-function test() {
-  console.log(2);
-}
-
-function test() {
-  console.log(3);
-}
-
-test(); //  输出 3
+test();

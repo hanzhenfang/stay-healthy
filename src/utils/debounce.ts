@@ -11,19 +11,18 @@ export function debounce(
   immediately: boolean = true
 ) {
   let timerID: number = -1;
-  return function () {
+  return function (this: any, ...arg: any) {
     if (timerID < 0 && immediately) {
-      fn();
+      fn.apply(this, arg);
       timerID = 1;
-      console.log("第一次执行不防抖");
       return;
     }
     if (timerID > 0) {
-      console.log("我清除的 id 是", timerID);
       clearTimeout(timerID);
     }
     timerID = window.setTimeout(() => {
-      fn();
+      console.log("arg", arg);
+      fn.apply(this, arg);
     }, delay);
   };
 }

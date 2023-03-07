@@ -1,40 +1,22 @@
 <script setup lang="ts">
-import { ref, onMounted, computed } from "vue";
-
-import MyPromise from "@/utils/promise";
-import TestVue from "./view/Test/test.vue";
-import Test1Vue from "./view/Test/test1.vue";
-import Dialog from "./components/SearchBar/dialog/Dialog.vue";
-import CustomDirective from "./view/customDirective.vue/CustomDirective.vue";
-import { useBestLayout } from "./use/useBestGridLayout";
-import { debounce } from "./utils/debounce";
-import { throttle } from "./utils/throttle";
-
-import { DialogCreator } from "./components/SearchBar/dialog/dialogCreator";
-
-function testDebounce() {
-  console.log("哈哈");
-}
-const test = throttle(testDebounce);
+import GrandFather from "./view/provide/GrandFather.vue";
 </script>
 
 <template>
-  <div class="w-[390px] h-[844px]">
-    <button @click="test">消失</button>
+  <div class="w-100vw h-100vh bg-blue">
+    <GrandFather />
   </div>
 </template>
+<style></style>
 
-<style>
-@keyframes searchInput {
-  from {
-    transform: translateY(50px);
-  }
-  to {
-    transform: translateY(0px);
-  }
-}
-
-.searchInput {
-  animation: searchInput 1s;
-}
-</style>
+<!-- <div class="w-100vw h-100vh">
+    <div class="w-100% overflow-hidden">
+      <div class="max-w-250px">
+        <Elipsis class="text-red text-20px">
+          这是这是一段简单测试这是一段简单测试这是一段简单测试这是一段简单测试这是一段简单测试测测试这是一段简单测试这是一段简单测试这是一段简单测试这是一段简单测试一段简单测试
+          试这是一段简单测试这是一段简单测试这是一段简单测试这是一段简单测试一段简单测试
+          这是一段简单测试这是一段简单测试这是一段简单测试这是一段简单测试一段简单测试.jpg
+        </Elipsis>
+      </div>
+    </div>
+  </div> -->
