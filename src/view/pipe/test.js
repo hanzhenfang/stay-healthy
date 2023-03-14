@@ -44,7 +44,7 @@ function find(data, age) {
   return "没找到";
 }
 
-// const result = find(data, 8);
+const result = find(data, 8);
 
 const data2 = [
   {
@@ -79,3 +79,26 @@ function sum(...arg) {
   add.valueOf = () => result;
   return add;
 }
+
+function test() {
+  var par;
+  par = 2;
+  return par;
+}
+
+test(2);
+
+const demo = false;
+try {
+  (async function test() {
+    await new Promise(() => {
+      setTimeout(() => {
+        demo = true;
+      }, 1000);
+    });
+  })();
+} catch (err) {
+  console.log("出错", err);
+}
+
+console.log("哈哈");
