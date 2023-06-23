@@ -12,3 +12,57 @@ async function getRootFilesList() {
 }
 
 getRootFilesList();
+
+const datax1 = [
+  {
+    data: [
+      { time: "2023-01-01", value: "510" },
+      { time: "2023-01-02", value: "450" },
+      { time: "2023-01-03", value: "459" },
+      { time: "2023-01-04", value: "350" },
+    ],
+    name: "万全一站",
+  },
+  {
+    data: [
+      { time: "2023-01-01", value: "530" },
+      { time: "2023-01-02", value: "450" },
+      { time: "2023-01-03", value: "459" },
+      { time: "2023-01-04", value: "350" },
+    ],
+    name: "怀来二站",
+  },
+  {
+    data: [
+      { time: "2023-01-01", value: "510" },
+      { time: "2023-01-02", value: "450" },
+      { time: "2023-01-03", value: "459" },
+      { time: "2023-01-04", value: "350" },
+    ],
+    name: "张北三站",
+  },
+  {
+    data: [
+      { time: "2023-01-01", value: "510" },
+      { time: "2023-01-02", value: "450" },
+      { time: "2023-01-03", value: "459" },
+      { time: "2023-01-04", value: "350" },
+    ],
+    name: "市区一站",
+  },
+];
+
+function modifyData(initData: any[]) {
+  let result: any[] = [];
+  initData.forEach((item) => {
+    let valueArr: any[] = [];
+    item.data.forEach((value: any) => {
+      valueArr.push(value.value);
+    });
+    result.push({ name: item.name, value: valueArr });
+  });
+  console.log("result", result);
+  return result;
+}
+
+modifyData(datax1);
