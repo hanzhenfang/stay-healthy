@@ -1,41 +1,39 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
-import { AutoEllipsis } from "auto-ellipsis-text";
-import Auto from "@/view/Elipsis/EllpisisiXX.vue";
-import Resize from "@/view/resize/index.vue";
-import Infinite from "@/view/infinite/index.vue";
-// import { ToastCreator } from "@lazycatcloud/lzc-toolkit";
+import { onMounted } from "vue";
+import { useDelayLoad, DefaultLoading } from "@lazycatcloud/lzc-toolkit";
 
-const box = [
-  {
-    number: 1,
-    bg: "blue",
-  },
+const { LoadingComp, load, loading, unload } = useDelayLoad({
+  component: DefaultLoading,
+  delay: 3000,
+});
 
-  {
-    number: 2,
-    bg: "pink",
-  },
-
-  {
-    number: 3,
-    bg: "red",
-  },
-];
+onMounted(() => {
+  load();
+  setTimeout(() => {
+    // unload();
+  }, 3000);
+});
 </script>
 
 <template>
-  <div
-    class="w-100vw h-100vh text-14px text-black flex justify-center items-center"
-  >
-    <div class="w-300px h-300px overflow-auto flex snap-x">
-      <div
-        v-for="item in box"
-        class="w-300px h-300px shrink-0 leading-300px text-center snap-start"
-        :style="{ backgroundColor: item.bg }"
-      >
-        <span class="text-100px text-white">{{ item.number }}</span>
-      </div>
-    </div>
+  <div class="w-100vw h-100vh">
+    <span class="text-black">
+      {{ loading }}
+    </span>
+    <LoadingComp v-if="loading" class="w-full h-200px" text="111" />
   </div>
 </template>
+
+<style scoped>
+/* .containerEl {
+  height: -webkit-fill-available;
+  overflow: hidden;
+  position: fixed; 
+  height: 100vh;
+  overflow: hidden;
+} */
+/* .box { */
+/* overflow-y: auto; */
+/* -webkit-overflow-scrolling: touch; */
+/* } */
+</style>
