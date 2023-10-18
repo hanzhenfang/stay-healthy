@@ -8,25 +8,20 @@
   padding: 0px;
 }
 
-html {
-  height:100vh;
-  width:100vw;
-  position:fixed;
+body {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
   font-size: 10px;
   color: white;
   user-select: none;
-  overscroll-behavior-none
-}
-body{
-  
-  overscroll-behavior-none
 }
 
 #app {
+  height: 100%;
+  width: 100%;
   padding: 0;
   margin: 0;
-  width: 100vw;
   overflow: hidden;
   height: var(--app-height);
-  overscroll-behavior-none
 }

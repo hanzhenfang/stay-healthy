@@ -1,39 +1,26 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
-import { useDelayLoad, DefaultLoading } from "@lazycatcloud/lzc-toolkit";
+import { ref } from "vue";
+import { Vue3Lottie } from "vue3-lottie";
+import JSON from "@/assets/shangcheng.json";
 
-const { LoadingComp, load, loading, unload } = useDelayLoad({
-  component: DefaultLoading,
-  delay: 3000,
-});
+const count = ref(1);
+const lottie = ref();
 
-onMounted(() => {
-  load();
-  setTimeout(() => {
-    // unload();
-  }, 3000);
-});
+const obj = { name: "han", age: 19 };
+
+function playAnimation() {
+  lottie.value.play();
+}
+
+function stop() {
+  lottie.value.stop();
+}
+
+function goto() {
+  lottie.value.playSegments([0, 1]);
+}
 </script>
 
 <template>
-  <div class="w-100vw h-100vh">
-    <span class="text-black">
-      {{ loading }}
-    </span>
-    <LoadingComp v-if="loading" class="w-full h-200px" text="111" />
-  </div>
+  <RouterView />
 </template>
-
-<style scoped>
-/* .containerEl {
-  height: -webkit-fill-available;
-  overflow: hidden;
-  position: fixed; 
-  height: 100vh;
-  overflow: hidden;
-} */
-/* .box { */
-/* overflow-y: auto; */
-/* -webkit-overflow-scrolling: touch; */
-/* } */
-</style>
