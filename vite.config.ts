@@ -10,6 +10,9 @@ export default defineConfig({
     vue(),
     Unocss({
       presets: [presetUno()],
+      shortcuts: {
+        centered: "flex items-center justify-center",
+      },
     }),
   ],
   resolve: {
