@@ -1,6 +1,3 @@
-[submodule "wujie-test"]
-	path = wujie-test
-	url = https://github.com/hanzhenfang/wujie-test.git
 [submodule "lzc-search-page"]
 	path = lzc-search-page
 	url = https://gitee.com/linakesi/lzc-search-page.git
