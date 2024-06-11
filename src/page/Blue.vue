@@ -12,7 +12,7 @@ e();
     <div
       class="w-200px h-200px border-5px border-black border-solid text-center"
     >
-      <span class="text-30px leading-200px"> 弹出 popup{{ obj }} </span>
+      <span class="text-30px leading-200px">DNS 演示</span>
     </div>
   </div>
 </template>

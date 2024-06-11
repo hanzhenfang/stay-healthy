@@ -1,5 +1,7 @@
+import { rejects } from "assert";
+
 export async function sleep(delay: number) {
-  return new Promise((res) => {
+  return new Promise((res, reject) => {
     setTimeout(() => {
       console.log("结束");
       res(true);
