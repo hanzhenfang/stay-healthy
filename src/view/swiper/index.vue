@@ -1,206 +1,90 @@
-<script lang="ts" setup>
-import { ref, reactive, computed, onMounted, onBeforeUnmount } from "vue";
+<script setup lang="ts">
+import { ref, computed } from "vue";
+import { AutoEllipsis } from "auto-ellipsis-text";
+import Auto from "@/view/Elipsis/EllpisisiXX.vue";
+import Resize from "@/view/resize/index.vue";
+import Infinite from "@/view/infinite/index.vue";
+// import { ToastCreator } from "@lazycatcloud/lzc-toolkit";
 
-import { SvgIcon } from "@lazycatcloud/lzc-toolkit";
+const box = [
+  {
+    number: 1,
+    bg: "blue",
+  },
 
-const props = defineProps<{
-  polyList: any[];
-}>();
+  {
+    number: 2,
+    bg: "pink",
+  },
 
-const emits = defineEmits<{
-  (e: "clickItem", item: any): void;
-}>();
+  {
+    number: 3,
+    bg: "red",
+  },
+];
 
-const autoplayInterval = 3500; //自动播放的间隔
-const swiperContainer = ref<HTMLDivElement>();
-const swiperInfo = reactive({
-  offsetWidth: 0,
-});
+const containerEl = ref<HTMLDivElement>();
 
-const isAutoPlaying = ref<boolean>(false);
-const isHoverInPoly = ref<boolean>(false);
+function scrollEvent(e: UIEvent) {
+  const containerEl = e.target as HTMLDivElement;
+}
 
-const clonePolyList = computed(() => {
-  if (props.polyList.length <= 1) return props.polyList;
-  const firstItem = props.polyList[0];
-  const cloneList = [...props.polyList, firstItem];
-  return cloneList;
-});
+// 上一张
+function pre() {
+  const el = containerEl.value;
+  if (!el) return;
 
-const currentPolyInfo = reactive({
-  content: clonePolyList.value[0],
-  index: 0,
-});
+  const scrollLeft = el?.scrollLeft;
 
-function preBtn() {
-  if (!swiperContainer.value) return;
-  let scrollRatio = currentPolyInfo.index - 1;
-  if (scrollRatio < 0) {
-    swiperContainer.value.style.scrollBehavior = "auto";
-    swiperContainer.value.scrollLeft =
-      props.polyList.length * swiperInfo.offsetWidth;
-    if (!swiperContainer.value) return;
-    swiperContainer.value.style.scrollBehavior = "smooth";
-    currentPolyInfo.index = props.polyList.length - 1;
-    swiperContainer.value.scrollLeft =
-      (props.polyList.length - 1) * swiperInfo.offsetWidth;
-  } else {
-    currentPolyInfo.index--;
-    swiperContainer.value.scrollLeft = scrollRatio * swiperInfo.offsetWidth;
+  if (scrollLeft > 0) {
+    el.scrollLeft = scrollLeft - 300;
   }
 }
 
-let timerID: null | number = null;
-function nextBtn() {
-  if (!swiperContainer.value) return;
-  if (timerID) return;
-  let scrollRatio = currentPolyInfo.index + 1;
-  if (scrollRatio > props.polyList.length - 1) {
-    swiperContainer.value.scrollLeft = scrollRatio * swiperInfo.offsetWidth;
-    currentPolyInfo.index = 0;
-    timerID = window.setTimeout(() => {
-      if (!swiperContainer.value) return;
-      swiperContainer.value.style.scrollBehavior = "auto";
-      swiperContainer.value.scrollLeft = 0;
-      swiperContainer.value.style.scrollBehavior = "smooth";
-      if (timerID) clearTimeout(timerID);
-      timerID = null;
-    }, 1000);
-  } else {
-    currentPolyInfo.index++;
-    swiperContainer.value.scrollLeft = scrollRatio * swiperInfo.offsetWidth;
+function next() {
+  const el = containerEl.value;
+  if (!el) return;
+
+  const scrollLeft = el?.scrollLeft;
+
+  const max = (box.length - 1) * 300; //轮播图的数量 -1
+
+  if (scrollLeft < max) {
+    el.scrollLeft = scrollLeft + 300;
   }
 }
-
-function hdlClickItme(item: any) {
-  emits("clickItem", item);
-}
-
-function onMouseEnter(e: MouseEvent) {
-  if (isHoverInPoly.value) return;
-  isHoverInPoly.value = true;
-  pauseAutoPlay();
-}
-
-function onMouseOut(e: MouseEvent) {
-  if (!isHoverInPoly.value) return;
-  isHoverInPoly.value = false;
-  resumeAutoPlay();
-}
-
-function resumeAutoPlay() {
-  isAutoPlaying.value = false;
-  if (isHoverInPoly.value) return;
-  autoPlayTimeID = window.setInterval(() => {
-    nextBtn();
-    isAutoPlaying.value = true;
-  }, autoplayInterval);
-}
-
-function pauseAutoPlay() {
-  isAutoPlaying.value = false;
-  if (autoPlayTimeID) {
-    clearInterval(autoPlayTimeID);
-    autoPlayTimeID = null;
-  }
-}
-
-let autoPlayTimeID: number | null = null;
-onMounted(() => {
-  const observer = new ResizeObserver((entry: ResizeObserverEntry[]) => {
-    swiperInfo.offsetWidth = entry[0].contentRect.width;
-  });
-  if (!swiperContainer.value) return;
-  observer.observe(swiperContainer.value);
-  swiperInfo.offsetWidth = swiperContainer.value.offsetWidth;
-  autoPlayTimeID = window.setInterval(() => {
-    nextBtn();
-    isAutoPlaying.value = true;
-  }, autoplayInterval);
-});
-
-function clickSwiperFooterBtn(polyIndex: number) {
-  if (!swiperContainer.value) return;
-  swiperContainer.value.scrollLeft = polyIndex * swiperInfo.offsetWidth;
-  currentPolyInfo.index = polyIndex;
-}
-
-onBeforeUnmount(() => {
-  if (autoPlayTimeID) clearInterval(autoPlayTimeID);
-});
 </script>
+
 <template>
   <div
-    @mouseover="onMouseEnter"
-    @mouseout="onMouseOut"
-    class="w-full h-full bg-black flex relative"
+    class="w-100vw h-100vh text-14px text-black flex justify-center items-center"
   >
     <div
-      class="absolute left-0px w-15% h-full flex items-center justify-center"
+      @click.stop="pre"
+      class="w-60px h-60px rounded-full bg-black flex items-center justify-center"
     >
-      <div
-        v-show="clonePolyList.length > 1 && isHoverInPoly"
-        @click="preBtn"
-        class="w-56px h-56px bg-[rgba(255,255,255,0.06)] hover:bg-[rgba(255,255,255,0.2)] rounded-full cursor-pointer flex items-center justify-center"
-      >
-        <SvgIcon
-          name="上一步"
-          :width="10"
-          :height="18"
-          color="rgba(255,255,255,0.5)"
-        />
-      </div>
+      <span class="text-white">上一张</span>
     </div>
+
     <div
-      ref="swiperContainer"
-      class="hide-scrollbar h-full grow flex w-fit flex-nowrap overflow-x-scroll scroll-smooth snap-x snap-mandatory"
+      ref="containerEl"
+      @scroll="scrollEvent"
+      class="w-300px h-300px overflow-auto flex snap-x snap-mandatory scroll-smooth"
     >
       <div
-        @click="hdlClickItme(item)"
-        class="h-full min-w-full snap-start snap-always cursor-pointer overflow-hidden"
-        v-for="item in clonePolyList"
+        v-for="(item, index) in box"
+        class="w-300px h-300px shrink-0 leading-300px text-center snap-center"
+        :style="{ backgroundColor: item.bg }"
       >
-        <img class="w-full h-full object-cover" :src="item.coverPc" />
+        <span class="text-100px text-white">{{ item.number }}</span>
       </div>
     </div>
 
     <div
-      v-if="clonePolyList.length > 1"
-      class="w-15% h-full flex items-center justify-center absolute right-0px"
+      @click="next"
+      class="w-60px h-60px rounded-full bg-black flex items-center justify-center"
     >
-      <div
-        v-show="clonePolyList.length > 1 && isHoverInPoly"
-        @click="nextBtn"
-        class="w-56px h-56px cursor-pointer bg-[rgba(255,255,255,0.06)] hover:bg-[rgba(255,255,255,0.2)] rounded-full flex items-center justify-center"
-      >
-        <SvgIcon
-          class="rotate-180"
-          name="上一步"
-          :width="10"
-          :height="18"
-          color="rgba(255,255,255,0.5)"
-        />
-      </div>
-    </div>
-
-    <div
-      v-show="clonePolyList.length > 1 && isHoverInPoly"
-      class="absolute bottom-10px z-5 items-center justify-center flex w-full"
-    >
-      <div
-        class="rounded-15px flex px-16px bg-[rgba(0,0,0,0.5)] h-30px items-center justify-center"
-      >
-        <div
-          v-for="(_, index) in props.polyList.length"
-          @click="clickSwiperFooterBtn(index)"
-          class="h-10px rounded-10px ml-6px transition-width hover:bg-white cursor-pointer"
-          :class="
-            index === currentPolyInfo.index
-              ? `w-25px bg-[rgba(255,255,255,0.8)]`
-              : `w-10px bg-[rgba(255,255,255,0.5)]`
-          "
-        ></div>
-      </div>
+      <span class="text-white">下一张</span>
     </div>
   </div>
 </template>
