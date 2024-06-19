@@ -6,15 +6,21 @@ import Red from "@/page/Red.vue";
 import Camera from "@/page/Camera/index.vue";
 import Context from "@/page/Context.vue";
 import Parent from "@/page/component/Parent.vue";
+import Shake from "@/page/Shake.vue";
 
 export const router = createRouter({
   history: createWebHashHistory("/"),
   routes: [
-    { path: "/", redirect: "/parent" },
+    { path: "/", redirect: "/shake" },
 
     {
       path: "/blue",
       component: Blue,
+    },
+
+    {
+      path: "/shake",
+      component: Shake,
     },
 
     {

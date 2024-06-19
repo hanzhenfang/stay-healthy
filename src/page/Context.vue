@@ -2,16 +2,22 @@
 import { ref, nextTick } from "vue";
 const n = ref(0);
 
-const count = defineModel({ type: Number, default: 13 });
+const childrenCount = defineModel({ type: Number, default: 13 });
 
-count.value += 1;
-count.value += 2;
-count.value += 3;
-count.value += 4;
-console.log(count.value); // 这里为什么打印是 100？
+async function test() {
+  childrenCount.value = childrenCount.value + 1;
+  childrenCount.value = childrenCount.value + 1;
+
+  childrenCount.value = childrenCount.value + 1;
+  childrenCount.value = childrenCount.value + 1;
+}
+
+test();
+
+console.log(childrenCount.value); // 这里为什么打印是 100？
 
 nextTick(() => {
-  console.log(count.value); //这里结果为什么是 104？？
+  console.log(childrenCount.value); //这里结果为什么是 104？？
 });
 </script>
 <template>
@@ -19,8 +25,9 @@ nextTick(() => {
     <div v-if="n == 1" class="test">
       {{ n }}
     </div>
-
-    {{ count }}
+    <span class="text-200px">
+      {{ childrenCount }}
+    </span>
   </div>
 </template>
 

@@ -6,6 +6,13 @@
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
+
+  -webkit-touch-callout: none; /*系统默认菜单被禁用*/
+  -webkit-user-select: none; /*webkit浏览器*/
+  -khtml-user-select: none; /*早起浏览器*/
+  -moz-user-select: none; /*火狐浏览器*/
+  -ms-user-select: none; /*IE浏览器*/
+  user-select: none; /*用户是否能够选中文本*/
 }
 
 body {
@@ -13,7 +20,7 @@ body {
   width: 100vw;
   font-size: 10px;
   color: white;
-  user-select: none;
+  overflow: hidden;
 }
 
 #app {
@@ -21,6 +28,5 @@ body {
   width: 100%;
   padding: 0;
   margin: 0;
-  overflow: hidden;
   height: var(--app-height);
 }

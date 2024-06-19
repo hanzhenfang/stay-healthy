@@ -1,16 +1,9 @@
 <script lang="ts" setup>
-import { sleep } from "@/utils";
+import { ref } from "vue";
 
-function* test() {
-  console.log("11");
-  yield 1;
-  return "over";
-}
-
-const make = test();
-console.log("make", make);
-
-// const next = make.next(2);
-// console.log("next", next);
+import Content from "../Context.vue";
+const count = ref(100);
 </script>
-<template></template>
+<template>
+  <Content v-model="count" />
+</template>
