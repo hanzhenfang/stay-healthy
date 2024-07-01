@@ -11,7 +11,7 @@ import Shake from "@/page/Shake.vue";
 export const router = createRouter({
   history: createWebHashHistory("/"),
   routes: [
-    { path: "/", redirect: "/shake" },
+    { path: "/", redirect: "/clipboard" },
 
     {
       path: "/blue",
@@ -39,6 +39,10 @@ export const router = createRouter({
       path: "/parent",
       name: "parent",
       component: Parent,
+    },
+    {
+      path: "/clipboard",
+      component: () => import("@/view/clipboard/index.vue"),
     },
   ],
 });

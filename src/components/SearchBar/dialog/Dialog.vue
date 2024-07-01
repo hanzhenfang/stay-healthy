@@ -5,14 +5,14 @@
   >
     <div
       @click.stop=""
-      class="flex flex-col items-center pt-[22px] pb-[24px] px-[24px] w-[290px] h-[133px] rounded-[10px] bg-[#FEFFFF]"
+      class="flex flex-col items-center pt-[22px] pb-[24px] px-[24px] w-[290px] h-[200px] rounded-[10px] bg-[#FEFFFF]"
     >
       <div class="">
         <span class="text-[18px] text-[#333333] font-semibold">
           {{ title }}</span
         >
       </div>
-      <div class="grow">
+      <div class="grow mt-20px">
         <span class="text-[14px] text-[#333333]">{{ content }}</span>
       </div>
       <div class="flex w-full items-center justify-between text-[14px]">
