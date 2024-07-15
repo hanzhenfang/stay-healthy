@@ -6,7 +6,8 @@ import Red from "@/page/Red.vue";
 import Camera from "@/page/Camera/index.vue";
 import Context from "@/page/Context.vue";
 import Parent from "@/page/component/Parent.vue";
-import Shake from "@/page/Shake.vue";
+import Drag from "@/page/Drag.vue";
+import DragTest from "@/page/Drag-test.vue";
 
 export const router = createRouter({
   history: createWebHashHistory("/"),
@@ -19,8 +20,12 @@ export const router = createRouter({
     },
 
     {
+      path: "/dragtest",
+      component: DragTest,
+    },
+    {
       path: "/shake",
-      component: Shake,
+      component: Drag,
     },
 
     {
@@ -43,6 +48,16 @@ export const router = createRouter({
     {
       path: "/clipboard",
       component: () => import("@/view/clipboard/index.vue"),
+    },
+
+    {
+      path: "/drag",
+      component: () => import("@/page/DragPlus.vue"),
+    },
+
+    {
+      path: "/snippet",
+      component: () => import("@/page/CodeSnippet.vue"),
     },
   ],
 });

@@ -1,33 +1,27 @@
 <script lang="ts" setup>
-import { onMounted } from "vue";
+import { ref, onMounted } from "vue";
 
-import { name, ammendName } from "./test";
+const testbox = ref<HTMLDivElement>();
 
-onMounted(() => {
-  const div = document.querySelector("#box");
-  console.log("div", div);
+const arr = Array(10);
+const con = ref<HTMLDivElement>();
 
-  const test = div?.getClientRects();
-  console.log("test", test);
-});
-
-const test = [1, 2, 3, 4, 5];
-test.forEach((item, index, arr) => {
-  if (index == 1) {
-    test.pop();
-  }
-  console.log(item);
-});
+function test() {
+  con.value!.scroll(0, 100);
+}
 </script>
 
 <template>
-  <div class="w-300px h-300px bg-blue p-30px ml-auto">
-    <div class="text-20px">希望大家可以从我博客中学到一些新的知识</div>
-    <div class="text-20px mt-20px text-end">---韩振方</div>
-
-    <div class="text-15px mt-60px">https://juejin.cn/user/3065861918435437</div>
-    <div class="text-20px mt-20px text-end">---韩振方</div>
+  <div
+    ref="con"
+    class="w-300px h-300px bg-blue p-30px ml-auto mt-10px touch-none overflow-hidden"
+  >
+    <div v-for="(item, index) in arr" class="w-full h-100px">
+      {{ index }}
+    </div>
   </div>
+
+  <button @click="test">想在</button>
 </template>
 
 <style scoped>
