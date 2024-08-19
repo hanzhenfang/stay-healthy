@@ -8,5 +8,6 @@ import "@lazycatcloud/lzc-toolkit/dist/style.css";
 
 const app = createApp(App);
 
+console.log("哈哈");
 app.use(router);
 app.mount("#app");
