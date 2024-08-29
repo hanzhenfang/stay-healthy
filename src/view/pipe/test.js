@@ -8,8 +8,7 @@ function sum(...arg) {
   add.valueOf = () => result;
   return add;
 }
-
-("log");
+""("log");
 const data = [
   {
     name: "han",
