@@ -9,6 +9,7 @@ function sum(...arg) {
   return add;
 }
 
+("log");
 const data = [
   {
     name: "han",
