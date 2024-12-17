@@ -31,7 +31,7 @@ const PopupWrapper = defineComponent({
         </div>
       </div>
     );
-  },
+  }
 });
 
 type ExtractComponentProps<TC> = TC extends new (...arg: any) => {
@@ -56,7 +56,7 @@ export function popupCreator<C extends Component>(
       PopupWrapper,
       { onClose: close },
       {
-        default: () => h(component, props as VNodeProps),
+        default: () => h(component, props as VNodeProps)
       }
     );
     render(vnode, container);
@@ -77,6 +77,6 @@ export function popupCreator<C extends Component>(
   return {
     open,
     close,
-    isShow,
+    isShow
   };
 }

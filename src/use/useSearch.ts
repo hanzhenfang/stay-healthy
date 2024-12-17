@@ -50,5 +50,5 @@ export default {
   hdlSearchBtn, //按下搜索按钮==> 开始搜索
 
   //<------------------- 搜索记录相关  ------------------->
-  searchHistroyLists, //搜索记录数组
+  searchHistroyLists //搜索记录数组
 };

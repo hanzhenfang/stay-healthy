@@ -1,21 +1,16 @@
 import { defineComponent, PropType } from "vue";
 
-
 interface Props {
- name:string
+  name: string;
 }
 
-
-const MyComponent =defineComponent({
+const MyComponent = defineComponent({
   props: {
-    name:{
-      type:String,
+    name: {
+      type: String
     }
-    
   },
-   setup(props){
-   return ()=>{
-
-   } 
+  setup(props) {
+    return () => {};
   }
-})
+});

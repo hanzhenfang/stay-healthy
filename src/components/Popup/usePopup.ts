@@ -16,10 +16,10 @@ export function popupCreator(ContentPage: Component, option?: WrapperOption) {
       PopupWrapper,
       {
         direction: option?.direction,
-        onClose: close, //作为第二个参数传入 close 函数
+        onClose: close //作为第二个参数传入 close 函数
       },
       {
-        default: () => h(ContentPage), //第三个参数将作为 slot 传入 PopupWrapper
+        default: () => h(ContentPage) //第三个参数将作为 slot 传入 PopupWrapper
       }
     );
     render(vnode, container);
@@ -32,7 +32,7 @@ export function popupCreator(ContentPage: Component, option?: WrapperOption) {
 
   return {
     open,
-    close,
+    close
   };
 }
 

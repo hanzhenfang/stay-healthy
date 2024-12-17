@@ -1,6 +1,3 @@
-import { sign } from "crypto";
-import { setUncaughtExceptionCaptureCallback } from "process";
-
 export {};
 
 // ruduce 接受四个参数

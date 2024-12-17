@@ -12,5 +12,5 @@ function closeSearchBar() {
 
 export default {
   openSearchBar,
-  closeSearchBar,
+  closeSearchBar
 };

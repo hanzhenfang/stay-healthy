@@ -19,37 +19,37 @@ const datax1 = [
       { time: "2023-01-01", value: "510" },
       { time: "2023-01-02", value: "450" },
       { time: "2023-01-03", value: "459" },
-      { time: "2023-01-04", value: "350" },
+      { time: "2023-01-04", value: "350" }
     ],
-    name: "万全一站",
+    name: "万全一站"
   },
   {
     data: [
       { time: "2023-01-01", value: "530" },
       { time: "2023-01-02", value: "450" },
       { time: "2023-01-03", value: "459" },
-      { time: "2023-01-04", value: "350" },
+      { time: "2023-01-04", value: "350" }
     ],
-    name: "怀来二站",
+    name: "怀来二站"
   },
   {
     data: [
       { time: "2023-01-01", value: "510" },
       { time: "2023-01-02", value: "450" },
       { time: "2023-01-03", value: "459" },
-      { time: "2023-01-04", value: "350" },
+      { time: "2023-01-04", value: "350" }
     ],
-    name: "张北三站",
+    name: "张北三站"
   },
   {
     data: [
       { time: "2023-01-01", value: "510" },
       { time: "2023-01-02", value: "450" },
       { time: "2023-01-03", value: "459" },
-      { time: "2023-01-04", value: "350" },
+      { time: "2023-01-04", value: "350" }
     ],
-    name: "市区一站",
-  },
+    name: "市区一站"
+  }
 ];
 
 function modifyData(initData: any[]) {

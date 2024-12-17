@@ -13,21 +13,21 @@ export default defineConfig({
     Unocss({
       presets: [presetUno()],
       shortcuts: {
-        centered: "flex items-center justify-center",
-      },
-    }),
+        centered: "flex items-center justify-center"
+      }
+    })
   ],
   build: {
-    sourcemap: true,
+    sourcemap: true
   },
   resolve: {
     alias: {
       "@": resolve(__dirname, "src"),
-      "~": resolve(__dirname, "/"),
-    },
+      "~": resolve(__dirname, "/")
+    }
   },
 
   server: {
-    host: "0.0.0.0",
-  },
+    host: "0.0.0.0"
+  }
 });

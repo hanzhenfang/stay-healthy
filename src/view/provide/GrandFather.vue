@@ -1,17 +1,17 @@
 <script lang="ts" setup>
-// 这是爷爷组件
-import { ref } from "vue";
-import { provide } from "vue";
+  // 这是爷爷组件
+  import { ref } from "vue";
+  import { provide } from "vue";
 
-import Father from "./Father.vue";
+  import Father from "./Father.vue";
 
-const count = ref<number>(0);
-function add() {
-  count.value = count.value + 1;
-}
+  const count = ref<number>(0);
+  function add() {
+    count.value = count.value + 1;
+  }
 
-provide("message", count);
-provide("messageAdd", add); //我把 add 也同时提供给儿子组件
+  provide("message", count);
+  provide("messageAdd", add); //我把 add 也同时提供给儿子组件
 </script>
 <template>
   <div class="w-full h-[300px] bg-[black]">

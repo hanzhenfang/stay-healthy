@@ -18,7 +18,7 @@ interface ToastOptions {
 const DEFAULT_TOAST_OPTIONS: ToastOptions = {
   message: "懒猫云 Yes!!!",
   position: "middle",
-  duration: 1500,
+  duration: 1500
 };
 
 export class ToastCreator {

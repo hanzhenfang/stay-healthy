@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-function clickBtn() {
-  console.log("testB");
-}
+  function clickBtn() {
+    console.log("testB");
+  }
 </script>
 <template>
   <div class="w-100px h-100px bg-red centered">

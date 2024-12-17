@@ -6,6 +6,7 @@ import Red from "@/page/Red.vue";
 import Camera from "@/page/Camera/index.vue";
 import Context from "@/page/Context.vue";
 import Parent from "@/page/component/Parent.vue";
+import Form from "@/page/Form.vue";
 
 export const router = createRouter({
   history: createWebHashHistory("/"),
@@ -14,25 +15,30 @@ export const router = createRouter({
 
     {
       path: "/blue",
-      component: Blue,
+      component: Blue
+    },
+
+    {
+      path: "/form",
+      component: Form
     },
 
     {
       path: "/red",
-      component: Red,
+      component: Red
     },
     { path: "/camera", name: "camaera", component: Camera },
     { path: "/inputel", name: "inputel", component: InputEl },
     {
       path: "/context",
       name: "context",
-      component: () => import("@/page/Context.vue"),
+      component: () => import("@/page/Context.vue")
     },
 
     {
       path: "/parent",
       name: "parent",
-      component: Parent,
-    },
-  ],
+      component: Parent
+    }
+  ]
 });
