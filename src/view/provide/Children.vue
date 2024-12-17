@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-// 这是儿子组件
+  // 这是儿子组件
 
-import { inject } from "vue";
+  import { inject } from "vue";
 
-const suibian = inject("message", "假如爷爷没提供没有的话就用我");
-const add = inject("messageAdd", () => {});
+  const suibian = inject("message", "假如爷爷没提供没有的话就用我");
+  const add = inject("messageAdd", () => {});
 </script>
 <template>
   <div class="w-[70%] h-[230px] bg-[white]">

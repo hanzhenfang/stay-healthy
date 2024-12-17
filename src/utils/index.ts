@@ -19,6 +19,6 @@ export function f_reactive(obj: [] | Object) {
     set(target, key, newValue) {
       target[key] = newValue;
       return true;
-    },
+    }
   });
 }

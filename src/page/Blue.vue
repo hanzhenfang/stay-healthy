@@ -1,20 +1,51 @@
-<script setup lang="ts">
-import { ref, watch, reactive } from "vue";
-import { popupCreator } from "@/components/Popup/usePopup";
-import ContentP from "./component/Content.vue";
-import "@/test/test";
-import e, { Person } from "../test/zhuanfa";
-// import te, { Person } from "../test/test";
-e();
-</script>
-<template>
-  <div class="w-full h-full centered bg-blue relative flex flex-col centered">
-    <div
-      class="w-200px h-200px border-5px border-black border-solid text-center"
-    >
-      <span class="text-30px leading-200px">DNS 演示</span>
-    </div>
-  </div>
-</template>
+<script lang="ts" setup>
+const data = [
+  {
+    _id: "1",
+    createTime: "2025-08-11 09:00:00",
+    updateTime: "2025-08-11 10:00:00",
+    deptName: "技术部",
+    parentId: "0",
+    userName: "张三",
+    children: [
+      {
+        _id: "1754882369220",
+        deptName: "大前端",
+        userName: "张三",
+        updateTime: "2025/8/11 11:19:29",
+        createTime: "2025/8/11 11:19:29",
+        children: []
+      }
+    ]
+  },
+  {
+    _id: "2",
+    createTime: "2025-08-11 08:30:00",
+    updateTime: "2025-08-11 09:20:00",
+    deptName: "人事部",
+    parentId: "0",
+    userName: "王五",
+    children: []
+  }
+];
+function filterByDeptName(list, deptName) {
+  const data = list.map((item) => {
+    // 深拷贝防止修改原数据
+    const newItem = { ...item };
+    // 递归过滤子部门
+    newItem.children = filterByDeptName(newItem.children || [], deptName);
 
-<style scoped></style>
+    // 当前部门匹配 或 子部门中有匹配的
+    if (newItem.deptName.includes(deptName) || newItem.children.length > 0) {
+      return newItem;
+    }
+    return null;
+  });
+  console.log("data", data[1]);
+  return data.filter((item) => Boolean(item)); // 去掉 null
+}
+
+const result = filterByDeptName(data, "大前端");
+</script>
+
+<template></template>

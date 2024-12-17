@@ -16,9 +16,9 @@ const data = [
     children: [
       {
         name: "hansong",
-        age: 11,
-      },
-    ],
+        age: 11
+      }
+    ]
   },
 
   {
@@ -27,10 +27,10 @@ const data = [
     children: [
       {
         name: "hansong",
-        age: 8,
-      },
-    ],
-  },
+        age: 8
+      }
+    ]
+  }
 ];
 
 function find(data, age) {
@@ -53,9 +53,9 @@ const data2 = [
     children: [
       {
         name: "hansong",
-        age: 11,
-      },
-    ],
+        age: 11
+      }
+    ]
   },
 
   {
@@ -64,10 +64,10 @@ const data2 = [
     children: [
       {
         name: "hansong",
-        age: 8,
-      },
-    ],
-  },
+        age: 8
+      }
+    ]
+  }
 ];
 
 function sum(...arg) {

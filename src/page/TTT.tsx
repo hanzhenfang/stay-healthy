@@ -5,16 +5,16 @@ const tea = defineComponent({
   props: {
     age: {
       type: Number,
-      required: true,
+      required: true
     },
     nubi: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   },
   setup(props) {
     return () => <div>{props.age}</div>;
-  },
+  }
 });
 
 export default tea;

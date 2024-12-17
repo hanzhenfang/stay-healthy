@@ -49,6 +49,6 @@ export function useBestLayout(
 
   return {
     bestRowCounts,
-    bestWidth,
+    bestWidth
   };
 }

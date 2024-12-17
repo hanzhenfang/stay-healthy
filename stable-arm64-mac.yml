@@ -1,0 +1,11 @@
+version: 1.1.8-1
+files:
+  - url: v1.1.1/1.1.1/stable/stable/stable/lzc-client-desktop_arm64_v0.0.0-145-10-gc8244c3c.zip
+    sha512: 7RNAEdAq+T27XKpTdYvFS/1fDY6ek8orY8Cn7pMVNhFi2vOoUY/mJ2AiLhuNJPMGk6K7PdoBoukS02srHkQYJA==
+    size: 305939599
+  - url: v1.1.1/1.1.1/stable/stable/stable/lzc-client-desktop_arm64_v0.0.0-145-10-gc8244c3c.dmg
+    sha512: 5U0M9l1fl1arc3SMLLJTmOk3JF54OUQBbg+HqmupDJHrVcB6Ry2JKAusAfgRXko/NhxKqCkwLjgMk5dXxdBgBw==
+    size: 297359434
+path: lzc-client-desktop_arm64_v0.0.0-145-10-gc8244c3c.zip
+sha512: 7RNAEdAq+T27XKpTdYvFS/1fDY6ek8orY8Cn7pMVNhFi2vOoUY/mJ2AiLhuNJPMGk6K7PdoBoukS02srHkQYJA==
+releaseDate: "2025-02-14T06:55:04.420Z"
