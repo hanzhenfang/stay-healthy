@@ -6,6 +6,9 @@ import Red from "@/page/Red.vue";
 import Camera from "@/page/Camera/index.vue";
 import Context from "@/page/Context.vue";
 import Parent from "@/page/component/Parent.vue";
+import Editor from "@/page/Editor.vue";
+import Editor2 from "@/page/Editor2.vue";
+import Editor3 from "@/page/Editor3.vue";
 import Form from "@/page/Form.vue";
 
 export const router = createRouter({
@@ -18,6 +21,20 @@ export const router = createRouter({
       component: Blue
     },
 
+    {
+      path: "/editor",
+      component: Editor
+    },
+
+    {
+      path: "/editor2",
+      component: Editor2
+    },
+
+    {
+      path: "/editor3",
+      component: Editor3
+    },
     {
       path: "/form",
       component: Form

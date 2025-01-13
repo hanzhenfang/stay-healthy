@@ -43,5 +43,24 @@
         ]
       }
     ]
+  },
+  {
+    "type": "textarea",
+    "field": "slot",
+    "title": "插槽",
+    "value": "chil",
+    "control": [
+      {
+        "value": "child",
+        "child": true,
+        "rule": [
+          {
+            "type": "Button",
+            "slot": "append",
+            "children": ["child"]
+          }
+        ]
+      }
+    ]
   }
 ]

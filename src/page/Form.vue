@@ -86,6 +86,11 @@ const rule = ref([
       {
         label: "选择框",
         value: "select"
+      },
+
+      {
+        label: "长文本输入框",
+        value: "textarea"
       }
     ],
     on: {
@@ -110,13 +115,15 @@ const rule = ref([
   {
     type: "input",
     field: "title",
+    name: "表单名称",
     title: "表单名称",
     props: {
       placeholder: "请输入表单名称"
     },
     validate: [
       {
-        required: true
+        required: true,
+        message: "该字段为必填项"
       }
     ]
   },
@@ -129,7 +136,10 @@ const rule = ref([
     },
     validate: [
       {
-        required: true
+        type: "pattern",
+        required: true,
+        pattern: "^[a-zA-Z0-9]+$",
+        message: "只允许输入字母数字组合"
       }
     ]
   },
