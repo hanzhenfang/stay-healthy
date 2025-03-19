@@ -10,17 +10,32 @@ import Editor from "@/page/Editor.vue";
 import Editor2 from "@/page/Editor2.vue";
 import Editor3 from "@/page/Editor3.vue";
 import Form from "@/page/Form.vue";
+import DoubleDrag from "@/page/DoubleDrag.vue";
+import AbortController from "@/page/AbortController.vue";
+import Debugger from "@/page/Debugger.vue";
 
 export const router = createRouter({
   history: createWebHashHistory("/"),
   routes: [
-    { path: "/", redirect: "/parent" },
+    { path: "/", redirect: "/debugger" },
+    {
+      path: "/abort",
+      component: AbortController
+    },
 
+    {
+      path: "/debugger",
+      component: Debugger
+    },
     {
       path: "/blue",
       component: Blue
     },
 
+    {
+      path: "/doubledrag",
+      component: DoubleDrag
+    },
     {
       path: "/editor",
       component: Editor

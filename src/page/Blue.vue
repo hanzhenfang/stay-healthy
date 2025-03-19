@@ -14,8 +14,13 @@ import {
 import { popupCreator } from "@/components/Popup/usePopup";
 import ContentP from "./component/Content.vue";
 import "@/test/test";
+import BBtn from "@/components/Button";
 // import te, { Person } from "../test/test";
 import SelecBar from "@/components/Select/index.vue";
+import { eq, gtr } from "semver";
+
+console.log("是否相等 eq", eq("1.1.8-3", "1.1.8-4"));
+console.log("是否相等 gtr", gtr("1.1.8-3", "1.1.8-3"));
 
 const mytest = customRef<number>((track, trigger) => {
   return {
@@ -59,13 +64,27 @@ function mytestAdd() {
   mytest.value = 10;
   console.log("mytest.value", mytest.value);
 }
+
+const mock = ref({ obj: { c: 1 } });
+let {
+  value: {
+    obj: { c }
+  }
+} = mock;
+
+function chgMock() {
+  c = 10;
+  console.log("c", c);
+}
 </script>
 <template>
   <div class="w-full h-full centered bg-blue relative flex flex-col centered">
+    <BBtn />
     <div
       class="w-200px h-200px border-5px border-black border-solid text-center">
-      <span @click="mytestAdd" class="text-30px leading-200px">DNS 演示</span>
+      <span @click="chgMock" class="text-30px leading-200px">演示</span>
       {{ mytest }}
+      {{ obj }}
     </div>
     <div
       class="box"
