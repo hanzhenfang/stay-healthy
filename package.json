@@ -8,7 +8,8 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "prepare": "husky",
-    "format": "npx prettier --write \"**/*.{js,jsx,ts,vue,tsx,json,md}\""
+    "format": "npx prettier --write \"**/*.{js,jsx,ts,vue,tsx,json,md}\"",
+    "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",
@@ -40,7 +41,7 @@
     "@vitejs/plugin-vue": "^3.1.0",
     "husky": "^9.1.7",
     "sass": "^1.83.1",
-    "typescript": "^4.9.3",
+    "typescript": "^5.8.3",
     "vite": "^3.1.0",
     "vue-tsc": "^0.40.4"
   },

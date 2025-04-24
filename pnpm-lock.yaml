@@ -10,10 +10,10 @@ importers:
     dependencies:
       '@ant-design/icons-vue':
         specifier: ^7.0.1
-        version: 7.0.1(vue@3.4.27(typescript@4.9.3))
+        version: 7.0.1(vue@3.4.27(typescript@5.8.3))
       '@form-create/ant-design-vue':
         specifier: ^3.2.15
-        version: 3.2.15(vue@3.4.27(typescript@4.9.3))
+        version: 3.2.15(vue@3.4.27(typescript@5.8.3))
       '@lazycatcloud/lzc-toolkit':
         specifier: link:/Users/ffffang/workspace/linux/lzc-toolkit
         version: link:../../workspace/linux/lzc-toolkit
@@ -31,22 +31,22 @@ importers:
         version: 0.51.4
       '@vitejs/plugin-vue-jsx':
         specifier: ^3.1.0
-        version: 3.1.0(vite@3.1.0(sass@1.83.1))(vue@3.4.27(typescript@4.9.3))
+        version: 3.1.0(vite@3.1.0(sass@1.83.1))(vue@3.4.27(typescript@5.8.3))
       '@vueuse/core':
         specifier: ^9.13.0
-        version: 9.13.0(vue@3.4.27(typescript@4.9.3))
+        version: 9.13.0(vue@3.4.27(typescript@5.8.3))
       '@wangeditor/editor':
         specifier: ^5.1.23
         version: 5.1.23
       '@wangeditor/editor-for-vue':
         specifier: ^5.1.12
-        version: 5.1.12(@wangeditor/editor@5.1.23)(vue@3.4.27(typescript@4.9.3))
+        version: 5.1.12(@wangeditor/editor@5.1.23)(vue@3.4.27(typescript@5.8.3))
       ant-design-vue:
         specifier: ~4.2.6
-        version: 4.2.6(vue@3.4.27(typescript@4.9.3))
+        version: 4.2.6(vue@3.4.27(typescript@5.8.3))
       auto-ellipsis-text:
         specifier: ^0.1.4
-        version: 0.1.4(vue@3.4.27(typescript@4.9.3))
+        version: 0.1.4(vue@3.4.27(typescript@5.8.3))
       dayjs:
         specifier: ^1.11.13
         version: 1.11.13
@@ -64,26 +64,26 @@ importers:
         version: 0.51.4(postcss@8.4.38)(rollup@2.78.1)(vite@3.1.0(sass@1.83.1))
       vite-svg-loader:
         specifier: ^5.1.0
-        version: 5.1.0(vue@3.4.27(typescript@4.9.3))
+        version: 5.1.0(vue@3.4.27(typescript@5.8.3))
       vue:
         specifier: ^3.4.27
-        version: 3.4.27(typescript@4.9.3)
+        version: 3.4.27(typescript@5.8.3)
       vue-draggable-plus:
         specifier: ^0.6.0
         version: 0.6.0(@types/sortablejs@1.15.8)
       vue-router:
         specifier: ^4.1.5
-        version: 4.1.5(vue@3.4.27(typescript@4.9.3))
+        version: 4.1.5(vue@3.4.27(typescript@5.8.3))
       vue3-lottie:
         specifier: ^3.1.0
-        version: 3.1.0(vue@3.4.27(typescript@4.9.3))
+        version: 3.1.0(vue@3.4.27(typescript@5.8.3))
     devDependencies:
       '@types/node':
         specifier: ^18.11.10
         version: 18.11.10
       '@vitejs/plugin-vue':
         specifier: ^3.1.0
-        version: 3.1.0(vite@3.1.0(sass@1.83.1))(vue@3.4.27(typescript@4.9.3))
+        version: 3.1.0(vite@3.1.0(sass@1.83.1))(vue@3.4.27(typescript@5.8.3))
       husky:
         specifier: ^9.1.7
         version: 9.1.7
@@ -91,14 +91,14 @@ importers:
         specifier: ^1.83.1
         version: 1.83.1
       typescript:
-        specifier: ^4.9.3
-        version: 4.9.3
+        specifier: ^5.8.3
+        version: 5.8.3
       vite:
         specifier: ^3.1.0
         version: 3.1.0(sass@1.83.1)
       vue-tsc:
         specifier: ^0.40.4
-        version: 0.40.4(typescript@4.9.3)
+        version: 0.40.4(typescript@5.8.3)
 
 packages:
 
@@ -1641,9 +1641,9 @@ packages:
   type@2.7.3:
     resolution: {integrity: sha512-8j+1QmAbPvLZow5Qpi6NCaN8FB60p/6x8/vfNqOk/hC+HuvFZhL4+WfekuhQLiqFZXOgQdrs3B+XxEmCc6b3FQ==}
 
-  typescript@4.9.3:
-    resolution: {integrity: sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==}
-    engines: {node: '>=4.2.0'}
+  typescript@5.8.3:
+    resolution: {integrity: sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ==}
+    engines: {node: '>=14.17'}
     hasBin: true
 
   ufo@1.3.0:
@@ -1773,11 +1773,11 @@ snapshots:
 
   '@ant-design/icons-svg@4.4.2': {}
 
-  '@ant-design/icons-vue@7.0.1(vue@3.4.27(typescript@4.9.3))':
+  '@ant-design/icons-vue@7.0.1(vue@3.4.27(typescript@5.8.3))':
     dependencies:
       '@ant-design/colors': 6.0.0
       '@ant-design/icons-svg': 4.4.2
-      vue: 3.4.27(typescript@4.9.3)
+      vue: 3.4.27(typescript@5.8.3)
 
   '@antfu/install-pkg@0.1.1':
     dependencies:
@@ -2002,15 +2002,15 @@ snapshots:
   '@esbuild/linux-loong64@0.15.18':
     optional: true
 
-  '@form-create/ant-design-vue@3.2.15(vue@3.4.27(typescript@4.9.3))':
+  '@form-create/ant-design-vue@3.2.15(vue@3.4.27(typescript@5.8.3))':
     dependencies:
       '@form-create/component-antdv-frame': 3.2.15
       '@form-create/component-antdv-group': 3.2.15
       '@form-create/component-antdv-upload': 3.2.15
       '@form-create/component-subform': 3.1.34
-      '@form-create/core': 3.2.15(vue@3.4.27(typescript@4.9.3))
+      '@form-create/core': 3.2.15(vue@3.4.27(typescript@5.8.3))
       '@form-create/utils': 3.2.15
-      vue: 3.4.27(typescript@4.9.3)
+      vue: 3.4.27(typescript@5.8.3)
 
   '@form-create/component-antdv-frame@3.2.15':
     dependencies:
@@ -2026,10 +2026,10 @@ snapshots:
 
   '@form-create/component-subform@3.1.34': {}
 
-  '@form-create/core@3.2.15(vue@3.4.27(typescript@4.9.3))':
+  '@form-create/core@3.2.15(vue@3.4.27(typescript@5.8.3))':
     dependencies:
       '@form-create/utils': 3.2.15
-      vue: 3.4.27(typescript@4.9.3)
+      vue: 3.4.27(typescript@5.8.3)
 
   '@form-create/utils@3.2.15': {}
 
@@ -2392,20 +2392,20 @@ snapshots:
       '@uppy/utils': 4.1.3
       nanoid: 3.3.7
 
-  '@vitejs/plugin-vue-jsx@3.1.0(vite@3.1.0(sass@1.83.1))(vue@3.4.27(typescript@4.9.3))':
+  '@vitejs/plugin-vue-jsx@3.1.0(vite@3.1.0(sass@1.83.1))(vue@3.4.27(typescript@5.8.3))':
     dependencies:
       '@babel/core': 7.24.5
       '@babel/plugin-transform-typescript': 7.24.5(@babel/core@7.24.5)
       '@vue/babel-plugin-jsx': 1.2.2(@babel/core@7.24.5)
       vite: 3.1.0(sass@1.83.1)
-      vue: 3.4.27(typescript@4.9.3)
+      vue: 3.4.27(typescript@5.8.3)
     transitivePeerDependencies:
       - supports-color
 
-  '@vitejs/plugin-vue@3.1.0(vite@3.1.0(sass@1.83.1))(vue@3.4.27(typescript@4.9.3))':
+  '@vitejs/plugin-vue@3.1.0(vite@3.1.0(sass@1.83.1))(vue@3.4.27(typescript@5.8.3))':
     dependencies:
       vite: 3.1.0(sass@1.83.1)
-      vue: 3.4.27(typescript@4.9.3)
+      vue: 3.4.27(typescript@5.8.3)
 
   '@volar/code-gen@0.40.4':
     dependencies:
@@ -2557,11 +2557,11 @@ snapshots:
       '@vue/shared': 3.4.27
       csstype: 3.1.3
 
-  '@vue/server-renderer@3.4.27(vue@3.4.27(typescript@4.9.3))':
+  '@vue/server-renderer@3.4.27(vue@3.4.27(typescript@5.8.3))':
     dependencies:
       '@vue/compiler-ssr': 3.4.27
       '@vue/shared': 3.4.27
-      vue: 3.4.27(typescript@4.9.3)
+      vue: 3.4.27(typescript@5.8.3)
 
   '@vue/shared@3.2.37': {}
 
@@ -2569,21 +2569,21 @@ snapshots:
 
   '@vue/shared@3.4.27': {}
 
-  '@vueuse/core@9.13.0(vue@3.4.27(typescript@4.9.3))':
+  '@vueuse/core@9.13.0(vue@3.4.27(typescript@5.8.3))':
     dependencies:
       '@types/web-bluetooth': 0.0.16
       '@vueuse/metadata': 9.13.0
-      '@vueuse/shared': 9.13.0(vue@3.4.27(typescript@4.9.3))
-      vue-demi: 0.14.6(vue@3.4.27(typescript@4.9.3))
+      '@vueuse/shared': 9.13.0(vue@3.4.27(typescript@5.8.3))
+      vue-demi: 0.14.6(vue@3.4.27(typescript@5.8.3))
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
 
   '@vueuse/metadata@9.13.0': {}
 
-  '@vueuse/shared@9.13.0(vue@3.4.27(typescript@4.9.3))':
+  '@vueuse/shared@9.13.0(vue@3.4.27(typescript@5.8.3))':
     dependencies:
-      vue-demi: 0.14.6(vue@3.4.27(typescript@4.9.3))
+      vue-demi: 0.14.6(vue@3.4.27(typescript@5.8.3))
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
@@ -2629,10 +2629,10 @@ snapshots:
       slate-history: 0.66.0(slate@0.72.8)
       snabbdom: 3.6.2
 
-  '@wangeditor/editor-for-vue@5.1.12(@wangeditor/editor@5.1.23)(vue@3.4.27(typescript@4.9.3))':
+  '@wangeditor/editor-for-vue@5.1.12(@wangeditor/editor@5.1.23)(vue@3.4.27(typescript@5.8.3))':
     dependencies:
       '@wangeditor/editor': 5.1.23
-      vue: 3.4.27(typescript@4.9.3)
+      vue: 3.4.27(typescript@5.8.3)
 
   '@wangeditor/editor@5.1.23':
     dependencies:
@@ -2702,10 +2702,10 @@ snapshots:
     dependencies:
       color-convert: 1.9.3
 
-  ant-design-vue@4.2.6(vue@3.4.27(typescript@4.9.3)):
+  ant-design-vue@4.2.6(vue@3.4.27(typescript@5.8.3)):
     dependencies:
       '@ant-design/colors': 6.0.0
-      '@ant-design/icons-vue': 7.0.1(vue@3.4.27(typescript@4.9.3))
+      '@ant-design/icons-vue': 7.0.1(vue@3.4.27(typescript@5.8.3))
       '@babel/runtime': 7.26.0
       '@ctrl/tinycolor': 3.6.1
       '@emotion/hash': 0.9.2
@@ -2724,8 +2724,8 @@ snapshots:
       shallow-equal: 1.2.1
       stylis: 4.3.4
       throttle-debounce: 5.0.2
-      vue: 3.4.27(typescript@4.9.3)
-      vue-types: 3.0.2(vue@3.4.27(typescript@4.9.3))
+      vue: 3.4.27(typescript@5.8.3)
+      vue-types: 3.0.2(vue@3.4.27(typescript@5.8.3))
       warning: 4.0.3
 
   anymatch@3.1.3:
@@ -2737,9 +2737,9 @@ snapshots:
 
   async-validator@4.2.5: {}
 
-  auto-ellipsis-text@0.1.4(vue@3.4.27(typescript@4.9.3)):
+  auto-ellipsis-text@0.1.4(vue@3.4.27(typescript@5.8.3)):
     dependencies:
-      '@vueuse/core': 9.13.0(vue@3.4.27(typescript@4.9.3))
+      '@vueuse/core': 9.13.0(vue@3.4.27(typescript@5.8.3))
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
@@ -3402,7 +3402,7 @@ snapshots:
 
   type@2.7.3: {}
 
-  typescript@4.9.3: {}
+  typescript@5.8.3: {}
 
   ufo@1.3.0: {}
 
@@ -3447,10 +3447,10 @@ snapshots:
       escalade: 3.1.2
       picocolors: 1.0.1
 
-  vite-svg-loader@5.1.0(vue@3.4.27(typescript@4.9.3)):
+  vite-svg-loader@5.1.0(vue@3.4.27(typescript@5.8.3)):
     dependencies:
       svgo: 3.1.0
-      vue: 3.4.27(typescript@4.9.3)
+      vue: 3.4.27(typescript@5.8.3)
 
   vite@3.1.0(sass@1.83.1):
     dependencies:
@@ -3462,45 +3462,45 @@ snapshots:
       fsevents: 2.3.3
       sass: 1.83.1
 
-  vue-demi@0.14.6(vue@3.4.27(typescript@4.9.3)):
+  vue-demi@0.14.6(vue@3.4.27(typescript@5.8.3)):
     dependencies:
-      vue: 3.4.27(typescript@4.9.3)
+      vue: 3.4.27(typescript@5.8.3)
 
   vue-draggable-plus@0.6.0(@types/sortablejs@1.15.8):
     dependencies:
       '@types/sortablejs': 1.15.8
 
-  vue-router@4.1.5(vue@3.4.27(typescript@4.9.3)):
+  vue-router@4.1.5(vue@3.4.27(typescript@5.8.3)):
     dependencies:
       '@vue/devtools-api': 6.5.0
-      vue: 3.4.27(typescript@4.9.3)
+      vue: 3.4.27(typescript@5.8.3)
 
-  vue-tsc@0.40.4(typescript@4.9.3):
+  vue-tsc@0.40.4(typescript@5.8.3):
     dependencies:
       '@volar/vue-language-core': 0.40.4
       '@volar/vue-typescript': 0.40.4
-      typescript: 4.9.3
+      typescript: 5.8.3
 
-  vue-types@3.0.2(vue@3.4.27(typescript@4.9.3)):
+  vue-types@3.0.2(vue@3.4.27(typescript@5.8.3)):
     dependencies:
       is-plain-object: 3.0.1
-      vue: 3.4.27(typescript@4.9.3)
+      vue: 3.4.27(typescript@5.8.3)
 
-  vue3-lottie@3.1.0(vue@3.4.27(typescript@4.9.3)):
+  vue3-lottie@3.1.0(vue@3.4.27(typescript@5.8.3)):
     dependencies:
       lodash-es: 4.17.21
       lottie-web: 5.12.2
-      vue: 3.4.27(typescript@4.9.3)
+      vue: 3.4.27(typescript@5.8.3)
 
-  vue@3.4.27(typescript@4.9.3):
+  vue@3.4.27(typescript@5.8.3):
     dependencies:
       '@vue/compiler-dom': 3.4.27
       '@vue/compiler-sfc': 3.4.27
       '@vue/runtime-dom': 3.4.27
-      '@vue/server-renderer': 3.4.27(vue@3.4.27(typescript@4.9.3))
+      '@vue/server-renderer': 3.4.27(vue@3.4.27(typescript@5.8.3))
       '@vue/shared': 3.4.27
     optionalDependencies:
-      typescript: 4.9.3
+      typescript: 5.8.3
 
   warning@4.0.3:
     dependencies:

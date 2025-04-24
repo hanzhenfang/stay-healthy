@@ -13,6 +13,8 @@ import Form from "@/page/Form.vue";
 import DoubleDrag from "@/page/DoubleDrag.vue";
 import AbortController from "@/page/AbortController.vue";
 import Debugger from "@/page/Debugger.vue";
+import TimeSlice from "@/page/TimeSlice.vue";
+import TestPage from "@/page/TestRoute.vue";
 
 export const router = createRouter({
   history: createWebHashHistory("/"),
@@ -24,12 +26,23 @@ export const router = createRouter({
     },
 
     {
+      path: "/timeslice",
+      component: TimeSlice
+    },
+
+    {
       path: "/debugger",
       component: Debugger
     },
     {
       path: "/blue",
       component: Blue
+    },
+
+    {
+      path: "/test/:id",
+      name: "test",
+      component: TestPage
     },
 
     {
