@@ -2,6 +2,7 @@
 import { ref, toRaw, reactive, getCurrentInstance } from "vue";
 
 import Button from "@/page/component/Button.vue";
+
 const isShow = ref(false);
 
 function banScroll(e: Event) {

@@ -30,9 +30,12 @@ export default defineConfig({
   build: {
     sourcemap: true
   },
+  esbuild: {
+    sourcemap: true
+  },
   resolve: {
     alias: {
-      "@": resolve(__dirname, "src"),
+      "@": resolve(__dirname, "src/"),
       "~": resolve(__dirname, "/")
     }
   },

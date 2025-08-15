@@ -1,41 +1,40 @@
 <script lang="ts" setup>
-  import { ref, h, Directive, onMounted, getCurrentInstance } from "vue";
-  import ReadChild from "./RedChild.vue";
+const obj = {
+  from: 0,
+  to: 5,
+  [Symbol.asyncIterator]: function () {
+    let current = this.from;
+    const last = this.to;
+    return {
+      async next() {
+        await new Promise((resolve) => {
+          setTimeout(() => {
+            resolve("");
+          }, 1000);
+        });
+        return {
+          done: current > last ? true : false,
+          value: current++
+        };
+      }
+    };
+  }
+};
 
-  const test = ref(1);
-  const dom = ref<HTMLDivElement>();
+// 生成器
+function* generateSequence() {
+  yield 1;
+}
 
-  const vTest: Directive = {
-    mounted: (el: HTMLDivElement, arg, value) => {
-      console.log("el", (el.style.backgroundColor = "red"));
-      console.log("arg", arg);
-      console.log("value", value);
-    }
-  };
+const generator = generateSequence();
 
-  const com = getCurrentInstance();
-
-  console.log("com", com);
+console.log("generator", generator);
 </script>
 
 <template>
-  <div
-    ref="1"
-    class="w-100px h-100px bg-black text-20px"
-    :id="test.toString()"></div>
-  <div v-if="test === 1">我出现</div>
-  <div v-else>我不出现</div>
-  <p class="rrr">我是父亲组件</p>
-  <ReadChild />
+  <div class="w-full h-full bg-blue">
+    <div class="flex flex-col bg-red">
+      <div class="inline-block">韩</div>
+    </div>
+  </div>
 </template>
-
-<style scoped>
-  .rrr,
-  :deep(.ttt) {
-    color: red;
-    text-decoration: wavy;
-  }
-  :global(.hh) {
-    color: yellow;
-  }
-</style>

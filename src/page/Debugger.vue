@@ -65,6 +65,11 @@ const pagination = Gen();
 console.log("pagination", pagination);
 console.log("第一页", pagination.next());
 console.log("第二页", pagination.next());
+
+window.addEventListener("beforeunload", (e) => {
+  e.preventDefault();
+  // e.returnValue = true;
+});
 </script>
 <template>
   <div class="w-full h-full bg-blue flex flex-col items-center justify-center">

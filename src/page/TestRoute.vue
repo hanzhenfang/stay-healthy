@@ -1,29 +1,38 @@
 <script lang="ts" setup>
-import { ref, onBeforeMount, onBeforeUpdate } from "vue";
-import { useRouter, useRoute } from "vue-router";
+import { reactive, watch } from "vue";
 
-const router = useRouter();
-const route = useRoute();
+let arr = reactive([]);
 
-const count = ref(1);
-
-async function jump() {
-  count.value++;
-  history.state.scroll = 10;
-  const resp = router.replace({
-    name: "test",
-    params: {
-      id: count.value
+function debounce(
+  fn: Function,
+  delay: number = 1000,
+  immediately: boolean = true
+) {
+  let timerID: number = -1;
+  return function (this: any, ...arg: any) {
+    if (timerID < 0 && immediately) {
+      fn.apply(this, arg);
+      timerID = 1;
+      return;
     }
-  });
-  console.log("t", resp);
-  console.log("route.params", route.params);
+    if (timerID > 0) {
+      clearTimeout(timerID);
+    }
+    timerID = window.setTimeout(() => {
+      console.log("arg", arg);
+      fn.apply(this, arg);
+    }, delay);
+  };
 }
+function test() {
+  console.log("触发");
+}
+
+const defn = debounce(test);
 </script>
 <template>
-  <div @click="jump" class="w-full h-full bg-red overflow-scroll">
-    <div class="w-full h-[3000px]">
-      <span class="text-40px text-black">{{ count }}</span>
-    </div>
+  <div @click="defn" class="w-50px h-50px bg-red">触发</div>
+  <div class="text-20px text-black">
+    {{ arr }}
   </div>
 </template>

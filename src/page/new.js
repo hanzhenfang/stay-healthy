@@ -1,4 +1,3 @@
-<script lang="ts" setup>
 const data = [
   {
     _id: "1",
@@ -46,6 +45,3 @@ function filterByDeptName(list, deptName) {
 }
 
 const result = filterByDeptName(data, "大前端");
-</script>
-
-<template></template>

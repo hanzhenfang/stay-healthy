@@ -15,6 +15,11 @@ import AbortController from "@/page/AbortController.vue";
 import Debugger from "@/page/Debugger.vue";
 import TimeSlice from "@/page/TimeSlice.vue";
 import TestPage from "@/page/TestRoute.vue";
+import Emiter from "@/page/Emitter/index.vue";
+import PickFile from "@/page/pick-file/index.vue";
+import VirtualList from "@/page/VitrualList/index.vue";
+import Race from "@/page/Race.vue";
+import Reactive from "@/page/Reactive.vue";
 
 export const router = createRouter({
   history: createWebHashHistory("/"),
@@ -31,6 +36,16 @@ export const router = createRouter({
     },
 
     {
+      path: "/reactive",
+      component: Reactive
+    },
+
+    {
+      path: "/race",
+      component: Race
+    },
+
+    {
       path: "/debugger",
       component: Debugger
     },
@@ -40,7 +55,7 @@ export const router = createRouter({
     },
 
     {
-      path: "/test/:id",
+      path: "/test",
       name: "test",
       component: TestPage
     },
@@ -81,9 +96,36 @@ export const router = createRouter({
     },
 
     {
-      path: "/parent",
+      path: "/pick-file",
+      name: "pick-file",
+      component: PickFile,
+      children: [
+        {
+          name: "qqq",
+          path: "",
+          component: Emiter
+        }
+      ]
+    },
+
+    {
+      path: "/emitter",
       name: "parent",
-      component: Parent
+      component: Emiter,
+      children: [
+        {
+          name: "qxx",
+          path: "",
+          component: Emiter
+        }
+      ]
+    },
+    {
+      path: "/virtual",
+      name: "virtual",
+      component: VirtualList
     }
   ]
 });
+
+window.$ = router;
